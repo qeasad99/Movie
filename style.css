@@ -446,52 +446,180 @@ header ul li a {
 
 
 /* 모바일 */
+
 @media (max-width: 576px) {
+
+    /* 배경 */
+    .bg {
+        padding: 15px 12px 40px;
+        background-attachment: scroll;
+        background-position: center;
+    }
+
+    /* 헤더 */
+    header .menu {
+        padding: 0 5px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    header h1 img {
+        width: 75px;
+    }
+
+    header ul {
+        gap: 0;
+        flex-wrap: wrap;
+    }
+
+    header ul li a {
+        padding: 10px 7px;
+        font-size: 12px;
+    }
+
+    /* 메인 타이틀 */
+    #con01 .txt {
+        padding: 35px 5px 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    #con01 h2 {
+        font-size: 28px;
+    }
+
+    #con01 span {
+        font-size: 20px;
+    }
+
+    #con01 p {
+        font-size: 13px;
+    }
+
+    #con01 .txt_right {
+        width: 100%;
+    }
+
+    /* 검색창 */
     .Search {
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
+        margin: 30px auto;
+        gap: 5px;
     }
 
-    .swiper {
-        /* width: 190px;
-        height: 280px; */
-        width: 65%;
-        height: 88%;
-        top: 3%;
-        left: 2%;
-        margin-top: 20px;
+    .Search input {
+        min-width: 0;
+        font-size: 13px;
     }
 
+    .Search button {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
 
-    /* 포스터 영역 */
-    .imgBox {
+    /* 카테고리 버튼 */
+    .btn-group {
+        gap: 8px;
+        padding: 0 5px;
+    }
+
+    .btn-group .btn {
+        font-size: 12px;
+        padding: 7px 10px;
+    }
+
+    /* 영화 티켓 */
+    .ticket {
         width: 100%;
-        height: 85%;
+        aspect-ratio: 600 / 340;
+        border-radius: 15px;
+    }
+
+    /* 티켓 내부 Swiper */
+    .ticket .swiper {
+        position: absolute;
+        left: 3%;
+        top: 12%;
+        width: 68%;
+        height: 75%;
+        margin: 0;
         overflow: hidden;
     }
 
-    .imgBox img {
+    /* 영화 카드 */
+    .ticket .movie {
+        width: 100%;
+        height: 100%;
+        gap: 8px;
+    }
+
+    .ticket .movie .posterBox {
+        flex: 0 0 45%;
+        width: 45%;
+        height: 100%;
+    }
+
+    .ticket .movie .poster {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    #con01 h2 {
-        font-size: 30px;
+    .ticket .movie .info {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
     }
 
     .ticket .swiper-slide h2 {
-        font-size: 15px;
-        font-weight: bold;
+        padding-left: 5px;
+        font-size: 12px;
+        line-height: 1.3;
+        word-break: keep-all;
     }
 
+    .ticket .swiper-slide p {
+        padding-left: 5px;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .movie .date {
+        font-size: 10px;
+    }
+
+    /* 줄거리 */
+    .ticket .imgBox .overview {
+        padding: 7px;
+        font-size: 10px;
+        line-height: 1.4;
+        overflow-y: auto;
+    }
+
+    /* 티켓 버튼 */
     .ticket .btn-primary {
-        left: 87%;
-        right: auto;
-        top: 78%;
-        transform: translateX(-50%);
+        left: auto;
+        right: 4%;
+        top: 82%;
+        transform: none;
+        font-size: 11px;
+        padding: 5px 9px;
+        white-space: nowrap;
+    }
+
+    /* 슬라이드 버튼 */
+    .ticket .swiper-button-prev,
+    .ticket .swiper-button-next {
+        width: 35px;
+        height: 35px;
+        transform: scale(0.7);
+    }
+
+    .ticket .swiper-button-prev::after,
+    .ticket .swiper-button-next::after {
         font-size: 14px;
-        padding: 4px 12px;
     }
 
 }
