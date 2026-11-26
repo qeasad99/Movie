@@ -601,8 +601,8 @@ header ul li a {
     /* 티켓 버튼 */
     .ticket .btn-primary {
         left: auto;
-        right: 4%;
-        top: 82%;
+        right: 10%;
+        top: 75%;
         transform: none;
         font-size: 11px;
         padding: 5px 9px;
