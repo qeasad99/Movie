@@ -1,0 +1,497 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    word-break: keep-all;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background: #f5f5f5;
+    color: #222;
+
+
+}
+
+.bg {
+    position: relative;
+    min-height: 100vh;
+    padding: 20px 24px 60px;
+    background-image:
+        linear-gradient(rgba(15, 12, 14, 0.68), rgba(15, 12, 14, 0.82)),
+        url("img/movie.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #f3ede4;
+
+}
+
+/*header*/
+header .menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    /* border-bottom: 1px solid #ccc; */
+
+}
+
+header h1 {
+    margin: 0;
+}
+
+header h1 img {
+    width: 100px;
+    display: block;
+    filter: brightness(0) invert(1);
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+
+}
+
+header ul li a {
+    display: block;
+    padding: 20px;
+}
+
+/*#con01*/
+#con01 .txt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    padding-top: 50px;
+}
+
+#con01 p {
+    color: burlywood;
+    font-weight: bold;
+}
+
+#con01 h2 {
+    font-size: 50px;
+}
+
+#con01 span {
+    font-size: 30px;
+    color: burlywood;
+}
+
+#con01 .txt_right p {
+    color: #f3ede4;
+}
+
+/* 검색 영역 */
+.Search {
+    width: 600px;
+    display: flex;
+    gap: 8px;
+    margin: 50px auto;
+}
+
+.Search input {
+    flex: 1;
+}
+
+/* 영화 카테고리 버튼 */
+.btn-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto 30px;
+
+}
+
+.btn-primary {
+    background-color: rgb(238, 185, 38);
+    border: none;
+}
+
+/*.ticket 영화 포스터가 들어오는 영역*/
+.ticket {
+    position: relative;
+    width: 1000px;
+    max-width: 100%;
+    aspect-ratio: 600 / 280;
+    background-color: #d6d0c7;
+    /* QR코드·절취선 구멍 사이로 비칠 밝은 밑색 */
+    border-radius: 26px;
+    /* 모서리 밖으로 밑색이 튀어나오지 않게 맞춤 */
+    overflow: hidden;
+    z-index: 2;
+    color: #222;
+    margin: 0 auto;
+}
+
+/* 티켓 배경 이미지 톤 변경 */
+.ticket::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    /* .ticket 배경색(#d6d0c7) 위, 내부 콘텐츠 아래 */
+    background: url("img/ticket-qr-solid.svg") center / 100% 100% no-repeat;
+    filter: brightness(1.55) contrast(0.82);
+    pointer-events: none;
+}
+
+/* .ticket 안의 실제 콘텐츠(.swiper, #ticketBtn 등)는 ::before 위로 올라오게
+.ticket>* {
+  position: relative;
+  z-index: 1;
+} */
+
+.ticket .btn-primary {
+    position: absolute;
+    right: 10%;
+    top: 80%;
+    font-size: 20px;
+}
+
+
+.ticket .imgBox {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 줄거리 기본 상태: 숨김 */
+.ticket .imgBox .overview {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 포스터에 마우스를 올리면 줄거리 표시 */
+.ticket .imgBox:hover .overview {
+    opacity: 1;
+}
+
+.ticket .swiper {
+    position: absolute;
+    left: 2%;
+    top: -2%;
+    width: 65%;
+    height: 88%;
+    overflow: hidden;
+}
+
+/* 예전의 flex 가운데 정렬 해제 + 높이 고정 */
+.ticket .swiper-slide {
+    display: block;
+    height: 100%;
+}
+
+/* 슬라이드 안 영화 한 장: 폭과 높이를 꽉 채움 */
+.ticket .movie {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 2ap;
+}
+
+
+
+
+.movie {
+    display: flex;
+    gap: 3cqw;
+    height: 100%;
+}
+
+.ticket .movie .posterBox {
+    flex: 0 0 50%;
+    width: 50%;
+    height: 100%;
+    aspect-ratio: auto;
+    overflow: hidden;
+}
+
+.ticket .movie .poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ticket .movie .info {
+    flex: 1;
+    min-width: 0;
+}
+
+
+
+.movie .date {
+    font-size: 2.4cqw;
+    margin: 0;
+    opacity: .8;
+}
+
+.movie .overview {
+    position: absolute;
+
+    padding: 2cqw;
+
+    overflow: hidden;
+    font-size: 1.8cqw;
+    line-height: 1.5;
+    color: #F3EDE4;
+    background: rgba(20, 17, 15, 0.88);
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.movie .posterBox:hover .overview {
+    opacity: 1;
+}
+
+/* Swiper 전체 영역 */
+.swiper {
+    width: 220px;
+    height: 320px;
+    margin: 40px auto;
+    overflow: visible;
+}
+
+/* 슬라이드 */
+.swiper-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide p:nth-of-type(1) {
+    margin-top: 5px;
+}
+
+.swiper-slide p {
+    padding-left: 20px;
+}
+
+.swiper-slide h2 {
+    padding-left: 20px;
+}
+
+/* 영화 카드 */
+.card {
+    width: 100%;
+    height: 100%;
+    background: #242424;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* 포스터 영역 */
+.imgBox {
+    width: 100%;
+    height: 85%;
+    overflow: hidden;
+}
+
+.imgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 영화 정보 */
+.card-body {
+    padding: 12px;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 12px;
+}
+
+/* 이전 / 다음 버튼 */
+.swiper-button-prev,
+.swiper-button-next {
+    z-index: 20;
+    cursor: pointer;
+    color: #fff;
+    background-color: orange;
+    width: 65px;
+    height: 70px;
+    border-radius: 50%;
+    transform: scale(0.7);
+
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.swiper-button-prev:hover {
+    color: orange;
+    background-color: #fff;
+
+}
+
+.swiper-button-next:hover {
+    color: orange;
+    background-color: #fff;
+
+}
+
+/* 페이지 표시 */
+.swiper-pagination {
+    bottom: -25px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #222;
+}
+
+/* 티켓이 살짝 줄어들었다 원래대로 돌아오는 모션 */
+@keyframes ticketCollect {
+    0% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 담은 영화 숫자가 살짝 커졌다 돌아오는 모션 */
+@keyframes countPop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.28);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.is-collecting {
+    animation: ticketCollect 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#count {
+    display: inline-block;
+}
+
+#count.is-popped {
+    animation: countPop 0.3s ease;
+}
+
+/* 양옆 슬라이드 포스터가 보일 수 있도록 영역만 살짝 개방 */
+.ticket .swiper {
+    overflow: hidden;
+}
+
+/* 기본 상태: 메인 외 슬라이드 포스터는 불투명(반투명) 처리 */
+.ticket .swiper-slide .posterBox,
+.ticket .swiper-slide .imgBox {
+    opacity: 0.35;
+    transition: opacity 0.35s ease;
+}
+
+/* 가운데 메인 슬라이드만 선명하게 보이도록 처리 */
+.ticket .swiper-slide-active .posterBox,
+.ticket .swiper-slide-active .imgBox {
+    opacity: 1;
+}
+
+.ticket .swiper-slide h2 {
+
+    font-weight: bold;
+}
+
+
+/* 모바일 */
+@media (max-width: 576px) {
+    .Search {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .swiper {
+        /* width: 190px;
+        height: 280px; */
+        width: 65%;
+        height: 88%;
+        top: 3%;
+        left: 2%;
+        margin-top: 20px;
+    }
+
+
+    /* 포스터 영역 */
+    .imgBox {
+        width: 100%;
+        height: 85%;
+        overflow: hidden;
+    }
+
+    .imgBox img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #con01 h2 {
+        font-size: 30px;
+    }
+
+    .ticket .swiper-slide h2 {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .ticket .btn-primary {
+        left: 87%;
+        right: auto;
+        top: 78%;
+        transform: translateX(-50%);
+        font-size: 14px;
+        padding: 4px 12px;
+    }
+
+}
